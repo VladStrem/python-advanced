@@ -1,0 +1,34 @@
+.box > p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.container p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.box:nth-child(2) > span {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    letter-spacing: 10px;
+}
+
+.inner > p:last-child {
+    color: red;
+    font-size: 18px;
+    text-decoration: overline;
+    margin-top: 10px;
+}
+
+section > .box > p + span {
+    color: blue;
+    font-size: 20px;
+    background-color: lightgray;
+    cursor: pointer;
+    letter-spacing: 5px;
+}
