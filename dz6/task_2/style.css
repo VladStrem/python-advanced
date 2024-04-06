@@ -1,0 +1,110 @@
+p.a {
+    padding: 10px;
+    margin: 20px;
+    max-width: 200px;
+    height: 80px;
+    border: 2px solid rgb(101, 1, 101);
+}
+
+span.a {
+    background-color: aqua;
+    border: 2px solid blue;
+    margin: 15px;
+    padding: 10px;
+    display: inline;
+}
+
+p.b {
+    padding: 10px;
+    margin: 20px;
+    max-width: 200px;
+    height: 150px;
+    border: 2px solid rgb(101, 1, 101);
+}
+
+span.b {
+    background-color: aqua;
+    border: 2px solid blue;
+    margin: 15px;
+    padding: 10px;
+    display: inline-block;
+    height: 30px;
+    width: 50px;
+}
+
+p.c {
+    padding: 10px;
+    margin: 20px;
+    max-width: 200px;
+    height: 150px;
+    border: 2px solid rgb(101, 1, 101);
+}
+
+span.c {
+    background-color: aqua;
+    border: 2px solid blue;
+    margin: 15px;
+    padding: 10px;
+    display: block;
+    height: 30px;
+    width: 50px;
+}
+/* task-2*/
+* {
+    margin: 0;
+}
+
+ul.decor {
+    list-style: inside url(seasons.png);
+}
+
+ul.decor .winter li {
+    list-style: inside url(winter.png);
+}
+ul.decor .spring li { /* Spring */
+    list-style: inside url(spring.png);
+}
+ul.decor .summer li { /* Summer */
+    list-style: inside url(summer.png);}
+
+ul.decor .autumn li {
+    list-style: inside url(autumn.png);
+}
+
+p.title {
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 2em;
+}
+
+.block {
+    /* border: 2px solid blue; */
+    background-color: lightgrey;
+    width: 50%;
+    max-height: 620px;
+    margin: 0 auto;
+    /* Вирівнювання */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*task-7*/
+    /* Внутрішній відступ */
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border: 2px solid #000;
+    /* Зовнішній відступ */
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    /* Встановлення властивості box-sizing */
+    /* box-sizing: padding-box; */
+    box-sizing: content-box;
+    /* box-sizing: border-box; */
+    /* box-sizing: border-box; */
+}
+.seasons {
+    text-align: center;
+}

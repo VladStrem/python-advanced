@@ -1,0 +1,55 @@
+.block {
+    font-family: Arial, sans-serif;
+    background-color: #ff9bf0;
+    padding: 20px;
+    width: 50%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.dark-bg {
+    background-color: #f86ff3;
+    
+}
+
+.text-bg {
+    background-color: #fa26fe;
+    padding: 10px;
+}
+
+.one {
+    margin-bottom: 50px;
+}
+
+.two {
+    margin-top: 30px;
+}
+
+
+p {
+    font-size: 1.5em;
+    background-color: #aaaaaa;
+    border: 4px solid purple;
+}
+
+.container {
+    width: 40%;
+    align-items: center;
+    font-size: 1.5em;
+    display: inline-block;
+    box-shadow: 9px 5px 6px 3px #888;
+    margin: 20px 20px;
+    border: 4px solid blue;
+}
+
+/*Відстань між двома абзацами складає 50px (margin-bottom в .one) + 30px (margin-top в .two), 
+тобто загалом 80px. Якщо встановити margin-top для першого абзацу -20px, то відстань між 
+абзацами стане 30px (30px - 20px), оскільки margin-top в .two залишається незмінним.*/

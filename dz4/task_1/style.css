@@ -1,15 +1,19 @@
+/* Стилізація параграфів, 
+які знаходяться всередині елементів з класом "box" */
 .box > p {
     font-size: 16px;
     color: #333;
     margin-bottom: 10px;
 }
-
+/* Стилізація параграфів, 
+які знаходяться всередині елементів з класом "container" */
 .container p {
     font-size: 14px;
     color: #666;
     line-height: 1.6;
 }
-
+/* Стилізація спан-елементів, 
+які є першими дочірніми елементами другого елемента з класом "box" */
 .box:nth-child(2) > span {
     font-family: Arial, sans-serif;
     font-weight: bold;
@@ -17,14 +21,15 @@
     text-decoration: underline;
     letter-spacing: 10px;
 }
-
+/* Стилізація останнього параграфа всередині елемента з класом "inner" */
 .inner > p:last-child {
     color: red;
     font-size: 18px;
     text-decoration: overline;
     margin-top: 10px;
 }
-
+/* Стилізація спан-елементів, які є наступниками параграфів всередині елементів з класом "box",
+   що знаходяться всередині секцій */
 section > .box > p + span {
     color: blue;
     font-size: 20px;
