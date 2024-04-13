@@ -1,0 +1,49 @@
+/* .container {
+    background-image: url("kitty.png");
+
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+
+    background-position: 25% 15%;
+
+    background-origin: border-box;
+} */
+
+/* .container {
+    background-image: url("cute-girl.jpg");
+    background-repeat: no-repeat;
+    background-size: 400px 400px;
+
+    background-origin: content-box;
+    padding: 40px;
+    border: 25 solid red;
+    border-style: dashed;
+
+    width: 400px;
+    height: 400px;
+} */
+
+/* .container {
+    background-image: url("cute-girl.jpg");
+    background-repeat: no-repeat;
+    background-size: 400px 400px;
+
+    background-clip: border-box;
+    padding: 40px;
+    border: 25 solid red;
+    border-style: dashed;
+
+    width: 400px;
+    height: 400px; 
+} */
+
+.container {
+    background-color: skyblue;
+    background-image: url('kitty.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 200px 200px;
+
+    height: 100vh;
+}
