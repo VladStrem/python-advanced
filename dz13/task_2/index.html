@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classic Filter Form</title>
+<style>
+  form {
+    display: flex; /* Розміщення в ряд */
+    flex-wrap: wrap; /* Перенесення на новий ряд, якщо не поміщається */
+    flex-direction: row; /* Відображення в колонку */
+  }
+
+  label {
+    display: flex; /* Розміщення в ряд */
+    align-items: center; /* Вирівнювання по вертикалі */
+    margin-bottom: 5px; /* Відступ між label і фільтром */
+  }
+
+  fieldset {
+    margin-bottom: 10px; /* Відступ між фільтрами */
+  }
+
+  label, select, input[type="text"] {
+    flex: 1; /* Розтягнення на всю доступну ширину */
+    margin-right: 10px; /* Відступ між елементами */
+  }
+
+  select, input[type="text"], input[type="radio"], input[type="checkbox"] {
+    flex: 1; /* Ширина фільтрів мінус відступи */
+    margin-right: 10px; /* Відступ для фільтрів */
+  }
+
+  input[type="radio"], input[type="checkbox"] {
+    flex: none; /* Нерозтяжні */
+    margin-right: 5px; /* Відступ для радіо та чекбоксів */
+  }
+  button {
+    flex-basis: 100%; /* Розтягнення кнопок на всю ширину ряду */
+    margin-top: 10px; /* Відступ для кнопок */
+  }
+
+  button[type="submit"], button[type="reset"] {
+    align-self: flex-end; /* Вирівнювання кнопок в правому куті */
+    margin-top: 10px; /* Відступ від імені до кнопок */
+  }
+</style>
+</head>
+<body>
+<form id="filter-form">
+  <label for="month-of-birth">Місяць народження</label>
+  <select id="month-of-birth" name="month-of-birth">
+    <option>Будь ласка, виберіть</option>
+    <!-- Додайте опції місяців тут -->
+  </select>
+
+  <label for="year-of-birth">Рік народження</label>
+  <select id="year-of-birth" name="year-of-birth">
+    <option>2020</option>
+    <option>2021</option>
+    <option>2022</option>
+    <option>2023</option>
+  </select>
+
+  <fieldset>
+    <legend>Стать</legend>
+    <label>
+      <input type="radio" name="gender" value="male"> Чоловіча
+    </label>
+    <label>
+      <input type="radio" name="gender" value="female"> Жіноча
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Документи</legend>
+    <label>
+      <input type="checkbox" name="documents" value="driving-licence"> Водійські права
+    </label>
+    <label>
+      <input type="checkbox" name="documents" value="passport"> Паспорт
+    </label>
+    <label>
+      <input type="checkbox" name="documents" value="carry-permit"> Дозвіл на носіння
+    </label>
+  </fieldset>
+
+  <label for="name">Ім'я</label>
+  <input type="text" id="name" name="name">
+
+  <button type="submit">Застосувати</button>
+  <button type="reset">Скинути</button>
+</form>
+</body>
+</html>
