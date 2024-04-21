@@ -1,107 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            background-color: #4cc550de;
-        }
-
-        .form {
-            background-color: rgb(71, 141, 253);
-            width: 450px;
-            padding-bottom: 5px;
-            margin: 0 auto;
-            height: 500px;
-        }
-
-        fieldset {
-            background-color: rgba(181, 228, 243, 0.936);
-            margin: 0px;
-            height: 420px;
-        }
-
-        .form-group {
-            margin: 20px;
-        }
-
-        input[type="email"], input[name="uname"], input[type="tel"] {
-            width: 350px;
-            padding: 7px;
-            background-color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        input[type="file"] {
-            padding: 5px;
-            background-color: white;
-            width: 355px;
-            border-radius: 5px;
-        }
-
-        /* input:focus {
-            outline: none;
-            border-color: #cddc39;
-        }
-
-        input:valid {
-            border-color: green;
-        }
-
-        input:invalid {
-            border-color: red;
-        } */
-
-        /* .required:after { 
-            content: '✖'; 
-            color: red; 
-            margin-left: 5px;  
-        } */
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Job Application Registration</title>
 </head>
 <body>
-    <form class="form" method="get">
+    <div class="block">
         <h1>Job Application Registration</h1>
-        <fieldset>
-
-            <div class="form-group">
-                <label for="uname">Full Name:</label>
-                <input type="text" id="uname" name="uname" 
-                list="browsers" minlength="4" maxlength="10" required>
-                <span class="required"></span>
-                <datalist id="browsers">
-                    <option value="Edge">
-                    <option value="Firefox">
-                    <option value="Chrome">
-                    <option value="Opera">
-                    <option value="Safari">
-                  </datalist>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" value="text@ukr.net" placeholder="test@gmail.com" id="userEmail" name="email">
-            </div>
-
-            <div class="form-group">
-                <label for="tel">Phone Number:</label>
-                <input type="tel" id="tel" placeholder="+38-090-005-50-50" pattern="\+38-\d{3}-\d{3}-\d{2}-\d{2}">
-            </div>
-
-            <div class="form-group">
-                <label for="file">Resume (PDF or Word):</label>
-                <input type="file">
-            </div>
-
-            <div class="form-group">
-                <label for="cars">Position Applied:</label>
-                <input type="text" id="uname" name="uname" 
-                list="browsers" value="Select Position" required>
-            </div>
-            <button type="submit">Submit Application</button>
-        </fieldset>
-    </form>
+        <div class="container">
+            <form action="submit.php" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" minlength="4" maxlength="10" required>
+                </div>
+                <div class="row">
+                    <label for="emailAddress">Email Address:</label>
+                    <input type="email" id="emailAddress" name="emailAddress" required>
+                </div>
+                <div class="row">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\+38-\d{3}-\d{3}-\d{2}-\d{2}" placeholder="+38-090-500-05-05" required>
+                </div>
+                <div class="row">
+                    <label for="resume">Resume (PDF or Word):</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf,.docx" required>
+                </div>
+                <div class="row">
+                    <label for="positionApplied">Position Applied:</label>
+                    <select id="positionApplied" name="positionApplied" required>
+                        <option value="">Select Position</option>
+                        <option value="software_developer">Software developer</option>
+                        <option value="web_developer">Web developer</option>
+                        <option value="designer">Designer</option>
+                        <option value="marketing_specialist">Marketer</option>
+                        <option value="sales_representative">Sales Representative</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <button type="submit">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
