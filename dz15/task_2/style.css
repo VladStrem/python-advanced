@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "menu"
+        "hero"
+        "main"
+        "banner"
+        "extra"
+        "image";
+    grid-template-rows: auto;
+    padding: 20px;
+}
+
+.header {
+    grid-area: header;
+    background-color: #020276;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.menu {
+    grid-area: menu;
+    background-color: #fd2c2ce4;
+    color: #fff;
+    text-align: center;
+    padding: 60px;
+}
+
+.hero {
+    grid-area: hero;
+    background-color: #3d98ffe4;
+    color: #fff;
+    text-align: center;
+    padding: 80px;
+}
+
+.main {
+    grid-area: main;
+    background-color: #0b2568e4;
+    text-align: center;
+    padding: 80px;
+}
+
+.banner {
+    grid-area: banner;
+    background-color: #b9ac21db;
+    color: #fff;
+    text-align: center;
+    padding: 40px;
+}
+
+.extra {
+    grid-area: extra;
+    background-color: #43f892;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+}
+
+.image {
+    grid-area: image;
+    background-color: #b3f6e5;
+    text-align: center;
+    padding: 30px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 2fr 2fr;
+        grid-template-areas:
+            "header header header"
+            "hero hero hero"
+            "menu main main"
+            "menu banner banner"
+            "menu extra image";
+    }
+}
