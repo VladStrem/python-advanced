@@ -1,0 +1,16 @@
+{
+    "title": "Harry Potter",
+    "year": 1997,
+    "authors": [
+        {
+            "name": "J.K. Rowling",
+            "gender": "Female",
+            "nationality": "British"
+        },
+        {
+            "name": "Stephen King",
+            "gender": "Male",
+            "nationality": "American"
+        }
+    ]
+}
