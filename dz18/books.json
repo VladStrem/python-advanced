@@ -1,0 +1,42 @@
+[
+    {
+        "number": 1,
+        "originalTitle": "Harry Potter and the Sorcerer's Stone",
+        "releaseDate": "Jun 26, 1997"
+    },
+    {
+        "number": 2,
+        "originalTitle": "Harry Potter and the chamber of secrets",
+        "releaseDate": "Jul 2, 1998"
+    },
+    {
+        "number": 3,
+        "originalTitle": "Harry Potter and the Prisoner of Azkaban",
+        "releaseDate": "Jul 8, 1999"
+    },
+    {
+        "number": 4,
+        "originalTitle": "Harry Potter and the Goblet of Fire",
+        "releaseDate": "Jul 8, 2000"
+    },
+    {
+        "number": 5,
+        "originalTitle": "Harry Potter and the Order of the Phoenix",
+        "releaseDate": "Jun 21, 2003"
+    },
+    {
+        "number": 6,
+        "originalTitle": "Harry Potter and the Half-Blood Prince",
+        "releaseDate": "Jul 16, 2005"
+    },
+    {
+        "number": 7,
+        "originalTitle": "Harry Potter and the Deathly Hallows",
+        "releaseDate": "Jul 21, 2007"
+    },
+    {
+        "number": 8,
+        "originalTitle": "Harry Potter and the Cursed Child",
+        "releaseDate": "Jul 30, 2016"
+    }
+]
