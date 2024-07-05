@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="row" action="/todo/add" method="post">
+    <div class="col-4">
+        <input type="text" id="title" name="title" placeholder="Enter title of task" class="form-control">
+    </div>
+    <div class="col-4">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
+{% endblock content %}
+
+{% block table %}
+<table class="table mb-4">
+    <thead>
+    <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Todo item</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for todo in todo_list %}
+    <tr>
+        <th scope="row">{{todo.id }}</th>
+        <td>{{ todo.title }}</td>
+        <td>
+            {% if not todo.complete %}
+            <div class="alert alert-secondary" role="alert">In progress</div>
+            {% else %}
+            <div class="alert alert-success" role="alert">Completed</div>
+            {% endif %}
+        </td>
+        <td>
+            <a class="btn btn-success" href="/todo/update/{{ todo.id }}">Update</a>
+            <a class="btn btn-danger ms-1" href="/todo/delete/{{ todo.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+{% endblock table %}
