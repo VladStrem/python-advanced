@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} Posts tagged with {{ tag.name }} {% endblock %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Posts tagged with "{{ tag.name }}"</h1>
+
+    {% if posts %}
+        <ul class="list-group">
+            {% for post in posts %}
+            <li class="list-group-item">
+                <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
+                <p class="mb-1 text-muted">Published on {{ post.publish }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="alert alert-warning">No posts available under this tag.</p>
+    {% endif %}
+
+    <a href="{% url 'blog:post-list' %}" class="btn btn-primary mt-3">Back to home</a>
+</div>
+{% endblock %}
