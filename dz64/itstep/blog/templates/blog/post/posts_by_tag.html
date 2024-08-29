@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %} Posts tagged with {{ tag.name }} {% endblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/tag.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Posts tagged with "{{ tag.name }}"</h1>
+
+    {% if posts %}
+        <ul class="list-group">
+            {% for post in posts %}
+            <li class="list-group-item">
+                <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
+                <p class="mb-1 text-muted">Published on {{ post.publish }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Пагінація -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center mt-4">
+                {% if posts.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link">First</a>
+                    </li>
+                    <li class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                    </li>
+                {% endif %}
+
+                <!-- Номери сторінок -->
+                {% for num in posts.paginator.page_range %}
+                    {% if posts.number == num %}
+                        <li class="page-item active">
+                            <a class="page-link">{{ num }}</a>
+                        </li>
+                    {% elif num > posts.number|add:-3 and num < posts.number|add:3 %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if posts.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ posts.next_page_number }}">Next</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ posts.paginator.num_pages }}">Last</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link">Next</a>
+                    </li>
+                    <li class="page-item disabled">
+                        <a class="page-link">Last</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+    {% else %}
+        <p class="alert alert-warning">No posts available under this tag.</p>
+    {% endif %}
+
+    <a href="{% url 'blog:post-list' %}" class="btn btn-primary mt-3">Back to home</a>
+</div>
+{% endblock %}

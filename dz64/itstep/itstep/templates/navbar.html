@@ -1,0 +1,20 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container justify-content-right">
+        <a class="navbar-brand" href="#">
+            <img style="max-height: 40px;" src="{% static 'images/logo.png' %}" /> My APP starter
+        </a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog:post-list' %}">
+                    <span class="fa fa-home mr-3"></span> Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog:published-post-list' %}">
+                    <span class="fa fa-book mr-3"></span> Publish
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

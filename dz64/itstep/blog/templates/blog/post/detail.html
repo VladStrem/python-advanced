@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.star-rating .fa-star {
+    font-size: 24px;
+    color: #ddd;
+}
+
+.star-rating .fa-star.checked {
+    color: orange;
+}
+</style>
+<div class="container mt-4">
+    <h2>{{ post.title }}</h2>
+    <p>Category: {{ post.category.title }}</p>
+    <p>Status: {{ post.get_status_display }}</p>
+    <p>Published on: {{ post.publish }}</p>
+    <p>{{ post.body }}</p>
+
+    <hr>
+
+    <h4>Average Rating: {{ avg_rating|default:"No ratings yet" }}</h4>
+    <div>
+        <div class="star-rating">
+            {% for i in star_range %}
+                {% if i <= avg_rating %}
+                    <span class="fa fa-star checked"></span>
+                {% else %}
+                    <span class="fa fa-star"></span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <hr>
+
+    <h4>User Ratings:</h4>
+    <div>
+        {% for rating in ratings %}
+            <div class="user-rating">
+                <p>{{ rating.user.username }} rated:</p>
+                <div class="star-rating">
+                    {% for i in star_range %}
+                        {% if i <= rating.rating %}
+                            <span class="fa fa-star checked"></span>
+                        {% else %}
+                            <span class="fa fa-star"></span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <hr>
+        {% empty %}
+            <p>No ratings yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
