@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="GET" action="{% url 'blog:post_list' %}">
+    <input type="text" name="q" placeholder="Search posts..." value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
+
+{% if posts %}
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'blog:post-detail' post.id %}">{{ post.title }}</a>
+                <p>{{ post.body|truncatewords:30 }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts found.</p>
+{% endif %}
+
+
+<h3>Categories</h3>
+<ul>
+    {% for category in categories %}
+        <li><a href="{% url 'blog:filter-posts-by-category' category.id %}">{{ category.title }}</a></li>
+    {% endfor %}
+</ul>
+
+{% if category %}
+    <h4>Posts in {{ category.title }}:</h4>
+{% endif %}
+{% endblock %}

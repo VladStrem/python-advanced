@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Post{% endblock %}
+
+{% block content %}
+<form class="row justify-content-start" method="post" novalidate>
+        {% csrf_token %}
+        <div class="col-auto align-self-end">
+            {{ form.as_p }}
+        </div>
+        <div class="col-auto align-self-end">
+            <button class="btn btn-secondary" type="submit">Edit Post</button>
+        </div>
+ </form>
+<a href="{% url 'blog:post-list' %}">Back to post list</a>
+{% endblock %}
