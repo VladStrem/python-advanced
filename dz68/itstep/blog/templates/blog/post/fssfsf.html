@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.star-rating .fa-star {
+    font-size: 24px;
+    color: #ddd;
+}
+
+.star-rating .fa-star.checked {
+    color: gold;
+}
+</style>
+<div class="container mt-4">
+    <h2>{{ post.title }}</h2>
+    <p>Category: {{ post.category.title }}</p>
+    <p>Status: {{ post.get_status_display }}</p>
+    <p>Published on: {{ post.publish }}</p>
+    <p>{{ post.body }}</p>
+
+    <hr>
+
+    <h4>Average Rating: {{ avg_rating|default:"No ratings yet" }}</h4>
+    <div>
+        <div class="star-rating">
+            {% for i in star_range %}
+                {% if i <= avg_rating %}
+                    <span class="fa fa-star checked"></span>
+                {% else %}
+                    <span class="fa fa-star"></span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <hr>
+
+    <h4>User Ratings:</h4>
+    <div>
+        {% for rating in ratings %}
+            <div class="user-rating">
+                <p>{{ rating.user.username }} rated:</p>
+                <div class="star-rating">
+                    {% for i in star_range %}
+                        {% if i <= rating.rating %}
+                            <span class="fa fa-star checked"></span>
+                        {% else %}
+                            <span class="fa fa-star"></span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <hr>
+        {% empty %}
+            <p>No ratings yet.</p>
+        {% endfor %}
+        <h4>Enter Ratings:</h4>
+        <form id="rating-form" method="post" 
+        action="{% url 'blog:post-rate' post_id=post.pk %}">
+    {% csrf_token %}
+    <div class="star-rating">
+        {% for radio in form.rating %}
+        <input type="radio" name="{{ form.rating.name }}" id="{{ radio.id_for_label }}" value="{{ radio.choice_label }}"
+            {% if radio.choice_label == current_rating|stringformat:"s" %} checked {% endif %}
+        onchange="submitRating()">
+        <label class="fa fa-star" for={{ radio.id_for_label }}></label>
+        {% endfor %}
+        </div>
+        </form>
+    </div>
+</div>
+
+
+{% block style-script %}
+    <style>
+        .star-rating {
+            direction: rtl;
+            display: inline-block;
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            font-size: 2em;
+            color: gray;
+            cursor: pointer;
+        }
+        .star-rating input:checked ~ label {
+            color: gold;
+        }
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: gold;
+        }
+    </style>
+
+    <script>
+        function submitRating() {
+            document.getElementById('rating-form').submit();
+        }
+    </script>
+    {% endblock %}
+
+{% endblock %}
