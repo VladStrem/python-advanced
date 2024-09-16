@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %} {{ post.title }} {% endblock %}
+{% block content %}
+<h1>{{ post.title }} by {{ post.author.username }}</h1>
+
+<p>
+<!--    Tags({{ post.count_tags }}):-->
+    <strong> Tags({{ post.count_tags }}): </strong>
+    {% for tag in post.tags.all %}
+    <a href="{% url 'blog:posts-by-tag' tag.slug %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</p>
+
+<p>
+    <strong> Category: </strong> {{ post.category }}
+</p>
+
+<p class="date">
+    Published {{ post.publish }}
+</p>
+
+<div class="blog-grid-img position-relative"><img alt="img"
+                                                                  src="{{ post.image.url }}" height="200px">
+</div>
+
+{{ post.body|linebreaks }}
+
+<a href="{% url 'blog:post-edit' post.pk %}"><button type="submit">Edit Post</button></a>
+
+{% if request.user.is_superuser %}
+<form action="{% url 'blog:post-delete' post.pk %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" onclick="return confirm('Ви впевнені, що хочете видалити цей пост?');">Видалити пост</button>
+</form>
+{% endif %}
+
+{% endblock %}
