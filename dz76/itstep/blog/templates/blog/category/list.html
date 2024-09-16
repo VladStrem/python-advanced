@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <h1>Categories</h1>
+    <a href="{% url 'blog:category-create' %}" class="btn btn-primary mb-3">Add New Category</a>
+    <ul class="list-group">
+      {% for category in categories %}
+        <li class="list-group-item">
+          <a href="{% url 'blog:category-detail' category.pk %}">
+            {{ category.title }}
+          </a>
+          <a href="{% url 'blog:category-update' category.pk %}" class="btn btn-warning btn-sm float-right ml-2">Edit</a>
+          <a href="{% url 'blog:category-delete' category.pk %}" class="btn btn-danger btn-sm float-right">Delete</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
