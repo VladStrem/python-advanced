@@ -1,0 +1,18 @@
+Watching for file changes with StatReloader
+"GET /blog/ HTTP/1.1" 200 27768
+"GET /account/profile/ HTTP/1.1" 200 18471
+"GET /media/users/2024/09/12/C_Sharp_Logo_2023.svg.png HTTP/1.1" 200 2920
+"GET /account/profile/edit/ HTTP/1.1" 200 19475
+"GET /account/password/change HTTP/1.1" 301 0
+"GET /account/password/change/ HTTP/1.1" 200 18993
+"POST /account/password/change/ HTTP/1.1" 302 0
+"GET /account/password/change/done/ HTTP/1.1" 200 18015
+"GET /account/profile/ HTTP/1.1" 200 18471
+"GET /account/profile/edit/ HTTP/1.1" 200 19475
+"GET /account/password/change HTTP/1.1" 301 0
+"GET /account/password/change/ HTTP/1.1" 200 18993
+"POST /account/password/change/ HTTP/1.1" 200 19297
+"POST /account/password/change/ HTTP/1.1" 200 19297
+"POST /account/password/change/ HTTP/1.1" 302 0
+"GET /account/password/change/done/ HTTP/1.1" 200 18014
+"GET /account/profile/ HTTP/1.1" 200 18471
