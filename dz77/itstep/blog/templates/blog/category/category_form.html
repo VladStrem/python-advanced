@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <h1>{% if form.instance.pk %}Edit Category{% else %}Create New Category{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.title.label_tag }}
+            {{ form.title|as_crispy_field }}
+        </div>
+        <button type="submit" class="btn btn-success">{% if form.instance.pk %}Update{% else %}Create{% endif %}
+        </button>
+        <a href="{% url 'blog:category-list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
