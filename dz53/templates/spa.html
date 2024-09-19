@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management SPA</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="my-4 text-center">User Management SPA</h1>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Register a new user</h2>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" id="register-user">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>User List</h2>
+        <ul id="user-list" class="list-group">
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+    // Функція для завантаження списку користувачів
+    function loadUsers() {
+        $.ajax({
+            url: "/users", // URL до вашого API для отримання користувачів
+            type: "GET",
+            success: function(users) {
+                console.log("Users loaded successfully:", users); // Логування для перевірки отриманих даних
+                $('#user-list').empty();
+                if (users.length > 0) {
+                    users.forEach(user => {
+                        $('#user-list').append(`
+                            <li id="user-${user.id}" class="list-group-item d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <label class="form-check-label">${user.username} (${user.email})</label>
+                                </div>
+                                <button class="btn btn-danger btn-sm delete-user" data-id="${user.id}">Delete</button>
+                            </li>
+                        `);
+                    });
+                } else {
+                    $('#user-list').append('<li class="list-group-item">No users found.</li>');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error loading users:", status, error); // Логування для перевірки помилок
+                alert('Error loading users');
+            }
+        });
+    }
+
+    // Реєстрація нового користувача
+    $('#register-user').click(function() {
+        const username = $('#username').val();
+        const email = $('#email').val();
+        const password = $('#password').val();
+
+        $.ajax({
+            url: "/users/register", // URL до вашого API для реєстрації користувачів
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({username, email, password}),
+            success: function(data) {
+                console.log("User registered successfully:", data); // Логування для перевірки успішної реєстрації
+                alert('User registered successfully');
+                $('#username').val('');
+                $('#email').val('');
+                $('#password').val('');
+                loadUsers(); // Оновлення списку користувачів після додавання
+            },
+            error: function(xhr, status, error) {
+                console.error("Error registering user:", status, error); // Логування для перевірки помилок
+                alert('Error registering user');
+            }
+        });
+    });
+
+    // Видалення користувача
+    $(document).on('click', '.delete-user', function() {
+        const id = $(this).data('id');
+        $.ajax({
+            url: `/users/${id}`, // URL до вашого API для видалення користувачів
+            type: "DELETE",
+            success: function() {
+                console.log(`User ${id} deleted successfully`); // Логування для перевірки успішного видалення
+                $(`#user-${id}`).remove(); // Видалення користувача зі списку на сторінці
+            },
+            error: function(xhr, status, error) {
+                console.error(`Error deleting user ${id}:`, status, error); // Логування для перевірки помилок
+                alert('Error deleting user');
+            }
+        });
+    });
+
+    // Завантаження списку користувачів при завантаженні сторінки
+    loadUsers();
+});
+
+    </script>
+</body>
+</html>
