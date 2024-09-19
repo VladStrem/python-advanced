@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <h1>Category: {{ category.title }}</h1>
+    <a href="{% url 'blog:category-update' category.pk %}" class="btn btn-warning">Edit Category</a>
+    <a href="{% url 'blog:category-delete' category.pk %}" class="btn btn-danger">Delete Category</a>
+    <a href="{% url 'blog:category-list' %}" class="btn btn-secondary">Back to Categories</a>
+  </div>
+{% endblock %}

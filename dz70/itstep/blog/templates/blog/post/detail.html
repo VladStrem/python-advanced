@@ -1,0 +1,90 @@
+<!-- detail.html -->
+{% extends "base.html" %}
+{% block title %} {{ post.title }} {% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.star-rating .fa-star {
+    font-size: 24px;
+    color: #ddd;
+}
+
+.star-rating .fa-star.checked {
+    color: orange;
+}
+</style>
+
+<h1>{{ post.title }} by {{ post.author.username }}</h1>
+
+<p><strong>Tags({{ post.count_tags }}):</strong>
+    {% for tag in post.tags.all %}
+    <a href="{% url 'blog:posts-by-tag' tag.slug %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</p>
+
+<p><strong>Category:</strong> {{ post.category }}</p>
+<p class="date">Published {{ post.publish }}</p>
+<div class="blog-grid-img position-relative"><img alt="img" src="{{ post.image.url }}" height="200px"></div>
+
+{{ post.body|linebreaks }}
+
+<h4>Average Rating: {{ avg_rating|default:"No ratings yet" }}</h4>
+    <div>
+        <div class="star-rating">
+            {% for i in star_range %}
+                {% if i <= avg_rating %}
+                    <span class="fa fa-star checked"></span>
+                {% else %}
+                    <span class="fa fa-star"></span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <hr>
+
+    <h4>User Ratings:</h4>
+    <div>
+        {% for rating in ratings %}
+            <div class="user-rating">
+                <p>{{ rating.user.username }} rated:</p>
+                <div class="star-rating">
+                    {% for i in star_range %}
+                        {% if i <= rating.rating %}
+                            <span class="fa fa-star checked"></span>
+                        {% else %}
+                            <span class="fa fa-star"></span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <hr>
+        {% empty %}
+            <p>No ratings yet.</p>
+        {% endfor %}
+    </div>
+
+<hr>
+<h3>Comments</h3>
+{% for comment in comments %}
+    <div class="comment">
+        <p><strong>{{ comment.author.username }}</strong> ({{ comment.created }}):</p>
+        <p>{{ comment.body }}</p>
+    </div>
+{% empty %}
+    <p>No comments yet.</p>
+{% endfor %}
+
+<h3>Leave a comment</h3>
+{% if request.user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit" class="btn btn-primary">Add comment</button>
+    </form>
+{% else %}
+    <p>You must be <a href="{% url 'login' %}">logged in</a> to add a comment.</p>
+{% endif %}
+{% endblock %}

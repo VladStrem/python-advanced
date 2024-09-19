@@ -1,0 +1,224 @@
+Watching for file changes with StatReloader
+C:\Users\Vlad\PycharmProjects\pythonM70\itstep\itstep\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Vlad\PycharmProjects\pythonM70\itstep\itstep\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /blog/ HTTP/1.1" 200 18474
+"GET /blog/post/create/ HTTP/1.1" 302 0
+"GET /account/login/?next=/blog/post/create/ HTTP/1.1" 200 18478
+"GET /account/register/ HTTP/1.1" 200 19758
+"GET /blog/ HTTP/1.1" 200 18474
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 17327
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 21227
+"GET /admin/account/profile/ HTTP/1.1" 200 22005
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/account/profile/add/ HTTP/1.1" 200 24256
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/account/profile/ HTTP/1.1" 200 22005
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+C:\Users\Vlad\PycharmProjects\pythonM70\itstep\account\apps.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/account/profile/ HTTP/1.1" 200 22006
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /account/register/ HTTP/1.1" 200 19758
+"POST /account/register/ HTTP/1.1" 302 0
+"GET /account/login/ HTTP/1.1" 200 18658
+"GET /account/profile/ HTTP/1.1" 200 18323
+"GET /admin/account/profile/ HTTP/1.1" 200 23658
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/account/profile/ HTTP/1.1" 200 23658
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Internal Server Error: /account/profile/edit/
+Traceback (most recent call last):
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\itstep\account\views.py", line 143, in edit_profile
+    profile_form = ProfileEditForm(instance=request.user.profile)
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 525, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.profile.RelatedObjectDoesNotExist: User has no profile.
+"GET /account/profile/edit/ HTTP/1.1" 500 94149
+"POST /account/logout/ HTTP/1.1" 302 0
+"GET /blog/ HTTP/1.1" 200 18474
+"GET /account/profile/ HTTP/1.1" 302 0
+"GET /account/login/?next=/account/profile/ HTTP/1.1" 200 18475
+Internal Server Error: /account/login/
+Traceback (most recent call last):
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\contrib\auth\views.py", line 88, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\views\generic\edit.py", line 151, in post
+    return self.form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\contrib\auth\views.py", line 107, in form_valid
+    auth_login(self.request, form.get_user())
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\contrib\auth\__init__.py", line 152, in login
+    user_logged_in.send(sender=user.__class__, request=request, user=user)
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\contrib\auth\models.py", line 23, in update_last_login
+    user.save(update_fields=["last_login"])
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\contrib\auth\base_user.py", line 78, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\db\models\base.py", line 924, in save_base
+    post_save.send(
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\itstep\account\signals.py", line 16, in save_profile
+    instance.profile.save()
+    ^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 525, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.profile.RelatedObjectDoesNotExist: User has no profile.
+"POST /account/login/?next=/account/profile/ HTTP/1.1" 500 177505
+"GET /account/login/?next=/account/profile/ HTTP/1.1" 200 18475
+"GET /admin/account/profile/add/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/account/profile/add/ HTTP/1.1" 200 17386
+"POST /admin/login/?next=/admin/account/profile/add/ HTTP/1.1" 302 0
+"GET /admin/account/profile/add/ HTTP/1.1" 200 24255
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/account/profile/ HTTP/1.1" 200 24010
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Forbidden (CSRF token from POST incorrect.): /account/login/
+"POST /account/login/?next=/account/profile/ HTTP/1.1" 403 15664
+Forbidden (CSRF token from POST incorrect.): /account/login/
+"POST /account/login/?next=/account/profile/ HTTP/1.1" 403 15664
+"GET /admin/account/profile/ HTTP/1.1" 200 24010
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/account/profile/ HTTP/1.1" 200 24010
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /blog/ HTTP/1.1" 200 18473
+"GET /account/profile/ HTTP/1.1" 200 18320
+"GET /account/profile/edit/ HTTP/1.1" 200 19194
+"POST /account/profile/edit/ HTTP/1.1" 302 0
+"GET /account/profile/ HTTP/1.1" 200 18559
+"GET /media/users/2024/09/19/c-plus-plus-93c7ddd5cc.png HTTP/1.1" 200 12986
+"GET /blog/post/create/ HTTP/1.1" 200 19502
+"GET /blog/tag/create HTTP/1.1" 200 19073
+"POST /blog/tag/create HTTP/1.1" 302 0
+"GET /blog/tag/create HTTP/1.1" 200 19425
+"POST /blog/tag/create HTTP/1.1" 302 0
+"GET /blog/tag/create HTTP/1.1" 200 19796
+"POST /blog/tag/create HTTP/1.1" 302 0
+"GET /blog/tag/create HTTP/1.1" 200 20153
+"POST /blog/tag/create HTTP/1.1" 302 0
+"GET /blog/tag/create HTTP/1.1" 200 20541
+"GET /blog/category/ HTTP/1.1" 200 17891
+"GET /blog/category/create/ HTTP/1.1" 200 18820
+"POST /blog/category/create/ HTTP/1.1" 302 0
+"GET /blog/category/ HTTP/1.1" 200 18331
+"GET /blog/category/create/ HTTP/1.1" 200 18820
+"POST /blog/category/create/ HTTP/1.1" 302 0
+"GET /blog/category/ HTTP/1.1" 200 18665
+"GET /blog/category/create/ HTTP/1.1" 200 18820
+"POST /blog/category/create/ HTTP/1.1" 302 0
+"GET /blog/category/ HTTP/1.1" 200 18991
+"GET /blog/category/create/ HTTP/1.1" 200 18820
+"POST /blog/category/create/ HTTP/1.1" 302 0
+"GET /blog/category/ HTTP/1.1" 200 19317
+"GET /blog/category/create/ HTTP/1.1" 200 18820
+"POST /blog/category/create/ HTTP/1.1" 302 0
+"GET /blog/category/ HTTP/1.1" 200 19648
+"GET /blog/post/create/ HTTP/1.1" 200 19868
+"POST /blog/post/create/ HTTP/1.1" 302 0
+"GET /blog/post/1/ HTTP/1.1" 200 19085
+"GET /media/post/images/Python-logo-notext.svg.png HTTP/1.1" 200 96986
+"GET /blog/post/1/update/ HTTP/1.1" 200 20411
+"GET /blog/post/1/ HTTP/1.1" 200 18986
+"GET /blog/post/create/ HTTP/1.1" 200 19868
+"GET /blog/post/create/ HTTP/1.1" 200 19868
+"POST /blog/post/create/ HTTP/1.1" 200 21567
+"POST /blog/post/create/ HTTP/1.1" 302 0
+"GET /blog/post/2/ HTTP/1.1" 200 20204
+"GET /media/default.png HTTP/1.1" 200 136879
+"GET /blog/post/2/update/ HTTP/1.1" 200 21574
+"POST /blog/post/2/update/ HTTP/1.1" 302 0
+"GET /blog/post/2/ HTTP/1.1" 200 20215
+"GET /media/post/images/images.png HTTP/1.1" 200 4083
+"GET /blog/cards/ HTTP/1.1" 200 21058
+"GET /media/post/images/Python-logo-notext.svg.png HTTP/1.1" 304 0
+"GET /media/post/images/images.png HTTP/1.1" 304 0
+"GET /blog/post/1/ HTTP/1.1" 200 18986
+C:\Users\Vlad\PycharmProjects\pythonM70\itstep\blog\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Vlad\PycharmProjects\pythonM70\itstep\blog\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Vlad\PycharmProjects\pythonM70\itstep\blog\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /blog/post/1/
+Traceback (most recent call last):
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vlad\PycharmProjects\pythonM70\itstep\blog\views.py", line 228, in post_detail
+    comment_form = CommentForm()
+                   ^^^^^^^^^^^
+NameError: name 'CommentForm' is not defined
+"GET /blog/post/1/ HTTP/1.1" 500 80998
+C:\Users\Vlad\PycharmProjects\pythonM70\itstep\blog\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /blog/post/1/ HTTP/1.1" 200 19938
+"GET /media/post/images/Python-logo-notext.svg.png HTTP/1.1" 304 0
+"POST /blog/post/1/ HTTP/1.1" 302 0
+"GET /blog/post/1/ HTTP/1.1" 200 20144
+"POST /blog/post/1/ HTTP/1.1" 302 0
+"GET /blog/post/1/ HTTP/1.1" 200 20280
+"GET /blog/post/1/ HTTP/1.1" 200 20179
+"GET /media/post/images/Python-logo-notext.svg.png HTTP/1.1" 304 0
+"POST /blog/post/1/ HTTP/1.1" 302 0
+"GET /blog/post/1/ HTTP/1.1" 200 20412
+"GET /media/post/images/Python-logo-notext.svg.png HTTP/1.1" 304 0
